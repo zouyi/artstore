@@ -34,7 +34,7 @@
             <a class="item" href="about.php">
               <i class="mail icon"></i> About Us
             </a>      
-            <a class="item">
+            <a class="item" href="blog.php">
               <i class="home icon"></i> Blog
             </a>      
             <div class="ui simple dropdown item">

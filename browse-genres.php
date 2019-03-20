@@ -49,6 +49,7 @@ try {
    
 <?php include 'includes/art-header.inc.php'; 
 
+echo "<img src='images/banner1.jpg'/>";
 echo "<table class='table table-dark'>";
 echo "<thead>";
 echo "<tr><th>ID</th>
@@ -92,7 +93,7 @@ echo "</table>";
   ?>
     
   <footer class="ui black inverted segment">
-      <div class="ui container">footer for later</div>
+       <?php include 'includes/art-footer.inc.php';?>
   </footer>
 </body>
 </html>
