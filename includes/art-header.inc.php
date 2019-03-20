@@ -42,9 +42,10 @@
               Browse
                 <i class="dropdown icon"></i>
               <div class="menu">
-                <a class="item" href="browse-artists.php"><i class="users icon"></i> Artists</a>
+                <a class="item" href="browse-paintings.php"><i class="users icon"></i> Artists</a>
                 <a class="item" href="browse-genres.php"><i class="theme icon"></i> Genres</a>
                 <a class="item" href="browse-paintings.php?type=all"><i class="paint brush icon"></i> Paintings</a>
+								     <a class="item" href="browse-paintings.php?type=all">Paintings</a>
                 <a class="item"><i class="cube icon"></i> Subjects</a>
               </div>
             </div>        
