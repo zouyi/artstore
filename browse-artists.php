@@ -1,6 +1,17 @@
 <?php
 
 include 'includes/art-config.inc.php';
+try {
+	
+    $artistDB = new ArtistDB($pdo);
+    $artists = $artistDB->getAll();  
+
+	
+} catch (PDOException $e) {
+	
+   die( $e->getMessage() );
+	
+}
 
 ?>
 <!DOCTYPE html>
@@ -52,47 +63,34 @@ echo "<tr><th>ID</th>
 </tr>";
 echo "</thead>";
 echo "<tbody>";
-class TableRows extends RecursiveIteratorIterator { 
-    function __construct($it) { 
-        parent::__construct($it, self::LEAVES_ONLY); 
-    }
-
-    function current() {
-        return "<td scope='row'>" . parent::current(). "</td>";
-    }
-
-    function beginChildren() { 
-        echo "<tr>"; 
-    } 
-
-    function endChildren() { 
-        echo "</tr>" . "\n";
-    } 
-} 
-
-$servername = "localhost";
-$username = "web-user";
-$password = "1234";
-$dbname = "art";
+	
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-  
-  $stmt = $conn->prepare("SELECT ArtistID, FirstName, LastName, Nationality, Gender, YearofBirth, YearofDeath, Details, ArtistLink FROM Artists"); 
-    $stmt->execute();
 
-    // set the resulting array to associative
-    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-    foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) { 
-        echo $v;
-    }
+//echo $artists;
+while ($artist = $artists->fetch()){
+	
+			echo '<tr>';
+			
+			echo '<td>'.$artist['ArtistID'].'</td>';
+			echo '<td>'.$artist['FirstName'].'</td>';
+			echo '<td>'.$artist['LastName'].'</td>';
+			echo '<td>'.$artist['Nationality'].'</td>';
+			echo '<td>'.$artist['Gender'].'</td>';
+			echo '<td>'.$artist['YearofBirth'].'</td>';
+			echo '<td>'.$artist['YearofDeath'].'</td>';
+			echo '<td>'.$artist['Details'].'</td>';
+			echo '<td><a href="'.$artist['ArtistLink'].'">'.$artist['ArtistLink'].'</a></td>';
+	echo '</tr>';
+			
+}
+			
+
+
 }
 catch(PDOException $e) {
     echo "Error: " . $e->getMessage();
 }
-$conn = null;
 echo "</tbody>";
 echo "</table>";
 ?>

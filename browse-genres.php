@@ -1,6 +1,17 @@
 <?php
 
 include 'includes/art-config.inc.php';
+try {
+	
+    $genreDB = new GenreDB($pdo);
+    $genres = $genreDB->getAll();  
+
+	
+} catch (PDOException $e) {
+	
+   die( $e->getMessage() );
+	
+}
 
 ?>
 <!DOCTYPE html>
@@ -30,57 +41,54 @@ include 'includes/art-config.inc.php';
   <style>
     .table{
       width: 50%;
-      margin-left:20%;
+      margin-left:50px;
     }
   
   </style>
 <body>
-    
+   
 <?php include 'includes/art-header.inc.php'; 
 
-$mysqli = NEW mysqli('localhost','username','password','database');
+echo "<table class='table table-dark'>";
+echo "<thead>";
+echo "<tr><th>ID</th>
+<th scope='col'>Name</th>
+<th scope='col'>Era</th>
+<th scope='col'>Description</th>
+<th scope='col'>Link</th>
+</tr>";
+echo "</thead>";
+echo "<tbody>";
+	
 
-require('/home/database/public_html/wp-load.php');
-$id = get_the_ID();
+try {
 
-$resultSet = $mysqli->query("SELECT * FROM sweepstake_data WHERE item_id = $id");
+//echo $artists;
+while ($genre = $genres->fetch()){
+	
+			echo '<tr>';
+			
+			echo '<td>'.$genre['GenreID'].'</td>';
+			echo '<td>'.$genre['GenreName'].'</td>';
+			echo '<td>'.$genre['EraID'].'</td>';
+			echo '<td>'.$genre['Description'].'</td>';
+            echo '<td><a href="'.$genre['Link'].'">'.$genre['Link'].'</a></td>';
 
-if($resultSet->num_rows !=0){
-
-echo "<table>"; // start a table tag in the HTML
-
-    while($rows = $resultSet->fetch_assoc())
-    {
-        $description = $rows['description'];
-        $links = $rows['links'];
-        $category = $rows['category'];
-        $eligibility = $rows['eligibility'];
-        $start_date = $rows['start_date'];
-        $end_date = $rows['end_date'];
-        $entry_frequency = $rows['entry_frequency'];
-        $prizes = $rows['prizes'];
-        $victory_prizes = $rows['victory_prizes'];
-        $additional_comments = $rows['additional_comments'];
-
-        "<tr><td>" . echo $description != "" ? "<p>Name: $description<br />" : "" ;
-        "<tr><td>" . echo $links != "" ? "Link: <a href=$links>Click here</a> <br />" : "" ;
-        "<tr><td>" . echo $category != "" ? "Category: $category<br />" : "" ;
-        "<tr><td>" . echo $eligibility != "" ? "Eligibility: $eligibility<br />" : "" ;
-        "<tr><td>" . echo $start_date != "" ? "Start date:$start_date<br />" : "" ;
-        "<tr><td>" . echo $end_date != "" ? "End date: $end_date<br />" : "" ;
-        "<tr><td>" . echo $entry_frequency != "" ? "Entry frequency: $entry_frequency<br />" : "" ;
-        "<tr><td>" . echo $prizes != "" ? "Prizes: $prizes<br />" : "" ;
-        "<tr><td>" . echo $victory_prizes != "" ? "Victory prizes: $victory_prizes<br />" : "" ;
-        "<tr><td>" . echo $additional_comments != "" ? "Additional comments: $additional_comments<br />" : "" ;
-
-    }
-
-echo "</table>"; //Close the table in HTML
-
-}else {
-    echo "No results.";
+	echo '</tr>';
+			
 }
+			
 
+
+}
+catch(PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+echo "</tbody>";
+echo "</table>";
+?>
+
+  
   ?>
     
   <footer class="ui black inverted segment">
