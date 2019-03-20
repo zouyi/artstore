@@ -61,12 +61,12 @@ echo "<tbody>";
 try {
 
 //echo $artists;
-while ($genre = $genres->fetch()){
+while ($subject = $subjects->fetch()){
 	
 			echo '<tr>';
 			
-			echo '<td>'.$genre['SubjectID'].'</td>';
-			echo '<td>'.$genre['SubjectName'].'</td>';
+			echo '<td>'.$subject['SubjectID'].'</td>';
+			echo '<td>'.$subject['SubjectName'].'</td>';
 
 	echo '</tr>';
 			

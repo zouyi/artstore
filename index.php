@@ -57,7 +57,7 @@
     <div class="col-md-6">   
       
       <div class="imagebox">
-        <a href="#hola">
+        <a href="browse-gallery.php">
           <img src="images/myart/vangogh.jpg"  class="category-banner img-responsive">
           <span class="imagebox-desc">Paintings By Gallery</span>
         </a>
@@ -86,7 +86,7 @@
     <div class="col-md-6">   
       
       <div class="imagebox">
-        <a href="#hola">
+        <a href="browse-subjects.php">
           <img src="images/myart/vangogh.jpg"  class="category-banner img-responsive">
           <span class="imagebox-desc">Paintings By Subjects</span>
         </a>
