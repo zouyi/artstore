@@ -4,8 +4,17 @@ include 'includes/art-config.inc.php';
 try {
 	
     $artistDB = new ArtistDB($pdo);
-    $artists = $artistDB->getAll();  
-
+	
+	
+		if (isset($_GET['aid']) && ! empty($_GET['aid'])) {
+				
+				$aid = $_GET['aid'];
+				
+				echo $aid;
+        $artist = $artistDB->findById($aid);
+   
+    }
+	
 	
 } catch (PDOException $e) {
 	
@@ -68,8 +77,6 @@ echo "<tbody>";
 
 try {
 
-//echo $artists;
-while ($artist = $artists->fetch()){
 	
 			$aid = $artist['ArtistID'];
 		
@@ -79,24 +86,22 @@ while ($artist = $artists->fetch()){
 			echo '<td>'.$artist['LastName'].'</td>';
 			echo '<td>'.$artist['Nationality'].'</td>';
 			echo '<td>'.$artist['Gender'].'</td>';
-			echo '<td>'.$artist['YearofBirth'].'</td>';
-			echo '<td>'.$artist['YearofDeath'].'</td>';
+			echo '<td>'.$artist['YearOfBirth'].'</td>';
+			echo '<td>'.$artist['YearOfDeath'].'</td>';
 			echo '<td>'.$artist['Details'].'</td>';
 			echo '<td>'.$artist['ArtistLink'].'</td>';
 			echo '<td><a href="displaySingleArtist.php?aid='.$aid.'">Artist Page</a></td>';
 			echo '</tr>';
 			
-}
-			
-
-
-}
-catch(PDOException $e) {
+		
+} catch(PDOException $e) {
     echo "Error: " . $e->getMessage();
 }
 echo "</tbody>";
 echo "</table>";
 ?>
+
+		     <?php include 'includes/related-images.inc.php'; ?>      
 
   
   ?>
