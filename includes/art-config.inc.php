@@ -2,7 +2,7 @@
 
 
 
-define('DBCONNECTION', 'mysql:host=localhost;dbname=art;port=8889');
+define('DBCONNECTION', 'mysql:host=localhost;dbname=art;port=3306');
 define('DBUSER', 'web-user');
 define('DBPASS', '1234');
 
