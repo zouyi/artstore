@@ -75,7 +75,7 @@
          <div class="col-md-6">
       
        <div class="imagebox">
-        <a href="#hola">
+        <a href="browse-genres.php">
           <img src="images/myart/vangogh.jpg"  class="category-banner img-responsive">
           <span class="imagebox-desc">Paintings By Genres</span>
         </a>

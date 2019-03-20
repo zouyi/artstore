@@ -31,7 +31,7 @@
             <a class="item" href="index.php">
               <i class="home icon"></i> Home
             </a>       
-            <a class="item">
+            <a class="item" href="about.php">
               <i class="mail icon"></i> About Us
             </a>      
             <a class="item">
@@ -44,10 +44,12 @@
               <div class="menu">
                 <a class="item" href="browse-artists.php"><i class="users icon"></i> Artists</a>
                 <a class="item" href="browse-genres.php"><i class="theme icon"></i> Genres</a>
-                <a class="item" href="browse-paintings.php?type=all"><i class="paint brush icon"></i> Paintings</a>
-                <a class="item"><i class="cube icon"></i> Subjects</a>
+                
+                <a class="item" href="browse-subjects.php"><i class="cube icon"></i> Subjects</a>
               </div>
+                
             </div>        
+            <a class="item" href="browse-paintings.php?type=all"><i class="paint brush icon"></i> Paintings</a>
             <div class="right item">
                 <div class="ui mini icon input">
 									<form action="browse-paintings.php" method="get">
