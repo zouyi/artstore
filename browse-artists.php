@@ -1,6 +1,7 @@
 <?php
 
 include 'includes/art-config.inc.php';
+
 ?>
 <!DOCTYPE html>
 <html lang=en>
@@ -26,87 +27,78 @@ include 'includes/art-config.inc.php';
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     
 </head>
-<body >
+  <style>
+    .table{
+      width: 50%;
+      margin-left:50px;
+    }
+  
+  </style>
+<body>
+   
+<?php include 'includes/art-header.inc.php'; 
+
+echo "<table class='table table-dark'>";
+echo "<thead>";
+echo "<tr><th>ID</th>
+<th scope='col'>Firstname</th>
+<th scope='col'>Lastname</th>
+<th scope='col'>Nationality</th>
+<th scope='col'>Gender</th>
+<th scope='col'>Year of Birth</th>
+<th scope='col'>Year of Death</th>
+<th scope='col'>Details</th>
+<th scope='col'>Link</th>
+</tr>";
+echo "</thead>";
+echo "<tbody>";
+class TableRows extends RecursiveIteratorIterator { 
+    function __construct($it) { 
+        parent::__construct($it, self::LEAVES_ONLY); 
+    }
+
+    function current() {
+        return "<td scope='row'>" . parent::current(). "</td>";
+    }
+
+    function beginChildren() { 
+        echo "<tr>"; 
+    } 
+
+    function endChildren() { 
+        echo "</tr>" . "\n";
+    } 
+} 
+
+$servername = "localhost";
+$username = "web-user";
+$password = "1234";
+$dbname = "art";
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-<?php include 'includes/art-header.inc.php'; ?>
-    
-<main class="ui segment doubling stackable grid container">
+  
+  $stmt = $conn->prepare("SELECT ArtistID, FirstName, LastName, Nationality, Gender, YearofBirth, YearofDeath, Details, ArtistLink FROM Artists"); 
+    $stmt->execute();
 
-    <section class="four wide column">
-        <form class="ui form" method="get" action="browse-paintings.php">
-          <h3 class="ui dividing header">Filters</h3>
+    // set the resulting array to associative
+    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+    foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) { 
+        echo $v;
+    }
+}
+catch(PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+$conn = null;
+echo "</tbody>";
+echo "</table>";
+?>
 
-          <div class="field">
-            <label>Artist</label>
-            <select class="ui fluid dropdown" name="artist">
-                <option value='0'>Select Artist</option>  
-                <?php  
-                    outputOptions($artists, 'ArtistID', 'LastName');
-                ?>
-            </select>
-          </div>  
-          <div class="field">
-            <label>Museum</label>
-            <select class="ui fluid dropdown" name="museum">
-                <option value='0'>Select Museum</option>  
-                <?php  
-                   outputOptions($galleries, 'GalleryID', 'GalleryName');
-                ?>
-            </select>
-          </div>   
-          <div class="field">
-            <label>Shape</label>
-            <select class="ui fluid dropdown" name="shape">
-                <option value='0'>Select Shape</option>  
-                <?php  
-                    outputOptions($shapes, 'ShapeID', 'ShapeName');
-                ?>
-            </select>
-          </div>   
-
-            <button class="small ui orange button" type="submit">
-              <i class="filter icon"></i> Filter 
-            </button>    
-
-        </form>
-    </section>
-    
-
-    <section class="twelve wide column">
-        <h1 class="ui header">Paintings</h1>
-        <h3 class="ui sub header"><?php echo $filter; ?></h3>
-        <ul class="ui divided items" id="paintingsList">
-            
-          <?php  while ($work = $paintings->fetch()) { ?>
-
-          <li class="item">
-            <a class="ui small image" href="single-painting.php?id=<?php echo $work['PaintingID']; ?>"><img src="images/art/works/square-medium/<?php echo $work['ImageFileName']; ?>.jpg"></a>
-            <div class="content">
-              <a class="header" href="single-painting.php?id=<?php echo $work['PaintingID']; ?>"><?php echo utf8_encode($work['Title']); ?></a>
-              <div class="meta"><span class="cinema"><?php echo makeArtistName($work['FirstName'],$work['LastName']); ?></span></div>        
-              <div class="description">
-                <p><?php echo utf8_encode($work['Excerpt']); ?></p>
-              </div>
-              <div class="meta">     
-                  <strong><?php echo '$' . number_format($work['MSRP'],0); ?></strong>        
-              </div>        
-              <div class="extra">
-                <a class="ui icon orange button" href="cart.php?id=<?php echo $work['PaintingID']; ?>"><i class="add to cart icon"></i></a>
-                <a class="ui icon button" href="favorites.php?id=<?php echo $work['PaintingID']; ?>"><i class="heart icon"></i></a>          
-              </div>        
-            </div>      
-          </li>
-            
-          <?php } ?>
-
-
-
-        </ul>        
-    </section>  
-    
-</main>    
-    
-
+  
+  ?>
     
   <footer class="ui black inverted segment">
       <div class="ui container">footer for later</div>
