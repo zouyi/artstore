@@ -18,6 +18,14 @@ try {
     // now retrieve paintings ... either all or a subset
     $paintDB = new PaintingDB($pdo);
     
+		 // filter by artist?
+    if (isset($_GET['search']) && ! empty($_GET['artist'])) {
+        $paintings = $paintDB->findByArtist($_GET['artist']);
+        
+        $artist = $artistDB->findById($_GET['artist']);
+        $filter = 'Artist = ' . makeArtistName($artist['FirstName'],$artist['LastName']) ;
+    }
+	
     // filter by artist?
     if (isset($_GET['artist']) && ! empty($_GET['artist'])) {
         $paintings = $paintDB->findByArtist($_GET['artist']);
@@ -41,10 +49,23 @@ try {
         $shape = $shapeDB->findById($_GET['shape']);
         $filter = 'Shape = ' . $shape['ShapeName'];
     }     
+	
+	  // filter by keyword
+    if (isset($_GET['search']) && ! empty($_GET['search'])) {
+        $paintings = $paintDB->findByKey($_GET['search']);
+        
+        //$key = $shapeDB->findById($_GET['search']);
+       $filter = 'Key = ' . $_GET['search'];
+    }     
                                             
     if (! isset($paintings) || $paintings->rowCount() == 0) {
         $paintings = $paintDB->getAll();
         $filter = "All Paintings [Top 20]";
+    }
+	
+		    if (isset($_GET['type'])) {
+        $paintings = $paintDB->getAllP();
+        $filter = "All Paintings";
     }
     
         

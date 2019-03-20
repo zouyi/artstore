@@ -44,14 +44,17 @@
               <div class="menu">
                 <a class="item" href="browse-artists.php"><i class="users icon"></i> Artists</a>
                 <a class="item" href="browse-genres.php"><i class="theme icon"></i> Genres</a>
-                <a class="item" href="browse-paintings.php"><i class="paint brush icon"></i> Paintings</a>
+                <a class="item" href="browse-paintings.php?type=all"><i class="paint brush icon"></i> Paintings</a>
                 <a class="item"><i class="cube icon"></i> Subjects</a>
               </div>
             </div>        
             <div class="right item">
                 <div class="ui mini icon input">
-                  <input type="text" placeholder="Search ...">
-                  <i class="search icon"></i>
+									<form action="browse-paintings.php" method="get">
+										  <input type="text" name="search" placeholder="Search ...">
+										<input type="submit" value="Submit"><i class="search icon"></i>
+									</form>
+       
                 </div>
             </div>      
 

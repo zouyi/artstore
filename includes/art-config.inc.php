@@ -3,8 +3,8 @@
 
 
 define('DBCONNECTION', 'mysql:host=localhost;dbname=art;port=8889');
-define('DBUSER', 'root');
-define('DBPASS', '123');
+define('DBUSER', 'web-user');
+define('DBPASS', '1234');
 
 
 spl_autoload_register(function ($class) {

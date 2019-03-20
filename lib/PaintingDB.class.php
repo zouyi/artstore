@@ -8,6 +8,8 @@ class PaintingDB
     private static $baseSQL = "SELECT PaintingID, Paintings.ArtistID AS ArtistID, FirstName, LastName, Paintings.GalleryID AS GalleryID, Galleries.GalleryName AS GalleryName, ImageFileName, Title, ShapeID, MuseumLink, AccessionNumber, CopyrightText, Description, Excerpt, YearOfWork, Width, Height, Medium, Cost, MSRP, GoogleLink, GoogleDescription, WikiLink FROM Paintings INNER JOIN Artists ON Paintings.ArtistID = Artists.ArtistID INNER JOIN Galleries ON Paintings.GalleryID = Galleries.GalleryID ";
     
     private static $constraint = ' order by YearOfWork limit 20';
+	    private static $constraint2 = ' order by YearOfWork';
+
     
     private $pdo = null;
     
@@ -18,6 +20,14 @@ class PaintingDB
     public function getAll()
     {
         $sql = self::$baseSQL . self::$constraint;
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+        return $statement;
+        
+    }   
+	
+	  public function getAllP()
+    {
+        $sql = self::$baseSQL . self::$constraint2;
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
         return $statement;
         
@@ -57,7 +67,16 @@ class PaintingDB
         $sql = "SELECT Paintings.PaintingID as ID, PaintingGenres.GenreID, ImageFileName, Title FROM Paintings INNER JOIN PaintingGenres ON Paintings.PaintingID = PaintingGenres.PaintingID WHERE PaintingGenres.GenreID=? ORDER BY YearOfWork" ;
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($genreID));
         return $statement;        
-    }     
+    }   
+	
+	   public function findByKey($keyword)
+    {
+        $sql = self::$baseSQL . " WHERE Paintings.Title like '%$keyword%'" . self::$constraint;
+			 
+			 //echo $sql;
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, Array($keyword));
+        return $statement;        
+    }   
 
 }
 
