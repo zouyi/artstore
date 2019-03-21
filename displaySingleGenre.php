@@ -10,10 +10,10 @@ try {
 				
 				$gid = $_GET['gid'];
 				
-				//echo $aid;
+				echo $gid;
         $genre = $genreDB->findById($gid);
    $paintings = $paintDB->findByGenre($gid);
-   
+   //print_r ($paintings);
     }
 	
 	
@@ -95,7 +95,7 @@ echo "</table>";
 		     <?php include 'includes/related-images.inc2.php'; ?>      
 
   
-  ?>
+  
     
 		 	</div>
 
