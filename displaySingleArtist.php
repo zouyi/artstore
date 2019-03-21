@@ -7,9 +7,9 @@ try {
 		$paintDB = new PaintingDB($pdo);
 	
 	
-		if (isset($_GET['aid']) && ! empty($_GET['aid'])) {
+		if (isset($_GET['gid']) && ! empty($_GET['gid'])) {
 				
-				$aid = $_GET['aid'];
+				$gid = $_GET['gid'];
 				
 				//echo $aid;
         $artist = $artistDB->findById($aid);
