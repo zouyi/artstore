@@ -107,7 +107,7 @@ catch (PDOException $e) {
     
 
 <footer class="ui black inverted segment">
-    <div class="ui container">footer</div>
+   <?php include 'includes/art-footer.inc.php';?>
 </footer>
 </body>
 </html>

@@ -38,17 +38,13 @@ try {
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     
 </head>
-  <style>
-    .table{
-      width: 50%;
-      margin-left:50px;
-    }
   
-  </style>
 <body>
-   
-<?php include 'includes/art-header.inc.php'; 
-echo "<img src='images/banner1.jpg'/>";
+   <div class="container">
+     
+<?php include 'includes/art-header.inc.php';
+echo "<h2>Browse Subjects</h2>";
+//echo "<img src='images/banner1.jpg'/>";
 echo "<table class='table table-dark'>";
 echo "<thead>";
 echo "<tr><th>ID</th>
@@ -62,7 +58,7 @@ try {
 
 //echo $artists;
 while ($subject = $subjects->fetch()){
-	
+		$sid = $subject['SubjectID'];
 			echo '<tr>';
 			
 			echo '<td>'.$subject['SubjectID'].'</td>';
@@ -82,7 +78,7 @@ echo "</tbody>";
 echo "</table>";
 ?>
 
-  
+  </div>
  
     
   <footer class="ui black inverted segment">

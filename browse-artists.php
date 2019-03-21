@@ -39,18 +39,14 @@ try {
     
 </head>
   <style>
-    .table{
-      width: 50%;
-      margin-left:50px;
-    }
-  
+    
   </style>
 <body>
-	
+	<div class="container">
+   
 <?php include 'includes/art-header.inc.php'; 
- echo "<div class='container'>";
-
-echo "<table class='table table-dark'>";
+echo "<h2>Browse Artists</h2>";
+echo "<table class='table'>";
 echo "<thead>";
 echo "<tr><th>ID</th>
 <th scope='col'>Firstname</th>
@@ -99,6 +95,7 @@ catch(PDOException $e) {
 }
 echo "</tbody>";
 echo "</table>";
+
 ?>
 
   

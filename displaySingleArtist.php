@@ -10,7 +10,7 @@ try {
 				
 				$aid = $_GET['aid'];
 				
-				echo $aid;
+				//echo $aid;
         $artist = $artistDB->findById($aid);
    
     }
@@ -48,11 +48,7 @@ try {
     
 </head>
   <style>
-    .table{
-      width: 50%;
-      margin-left:50px;
-    }
-  
+
   </style>
 <body>
    <div class="container">
@@ -89,8 +85,8 @@ try {
 			echo '<td>'.$artist['YearOfBirth'].'</td>';
 			echo '<td>'.$artist['YearOfDeath'].'</td>';
 			echo '<td>'.$artist['Details'].'</td>';
-			echo '<td>'.$artist['ArtistLink'].'</td>';
-			echo '<td><a href="displaySingleArtist.php?aid='.$aid.'">Artist Page</a></td>';
+			echo '<td><a href="'.$artist['ArtistLink'].'">'.$artist['ArtistLink'].'</a></td>';
+			//echo '<td><a href="displaySingleArtist.php?aid='.$aid.'">Artist Page</a></td>';
 			echo '</tr>';
 			
 		
@@ -109,7 +105,7 @@ echo "</table>";
 		 	</div>
 
   <footer class="ui black inverted segment">
-      <div class="ui container">footer for later</div>
+     <?php include 'includes/art-footer.inc.php';?>
   </footer>
 </body>
 </html>

@@ -55,7 +55,7 @@
 </div>
     
   <footer class="ui black inverted segment">
-      <div class="ui container">footer for later</div>
+     <?php include 'includes/art-footer.inc.php';?>
   </footer>
 </body>
 </html>

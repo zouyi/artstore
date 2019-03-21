@@ -104,7 +104,7 @@ function makeArtistName($first, $last) {
     
 </head>
 <body >
-    
+
 <?php include 'includes/art-header.inc.php'; ?>
     
 <main class="ui segment doubling stackable grid container">
