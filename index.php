@@ -59,7 +59,7 @@
       
       <div class="imagebox">
         <a href="browse-gallery.php">
-          <img src="images/myart/vangogh.jpg"  class="category-banner img-responsive">
+          <img src="images/myart/moma.jpg"  class="category-banner img-responsive">
           <span class="imagebox-desc">Paintings By Gallery</span>
         </a>
       </div>
@@ -77,7 +77,7 @@
       
        <div class="imagebox">
         <a href="browse-genres.php">
-          <img src="images/myart/vangogh.jpg"  class="category-banner img-responsive">
+          <img src="images/myart/genre.jpg"  class="category-banner img-responsive">
           <span class="imagebox-desc">Paintings By Genres</span>
         </a>
       </div>
@@ -88,7 +88,7 @@
       
       <div class="imagebox">
         <a href="browse-subjects.php">
-          <img src="images/myart/vangogh.jpg"  class="category-banner img-responsive">
+          <img src="images/myart/subject.jpg"  class="category-banner img-responsive">
           <span class="imagebox-desc">Paintings By Subjects</span>
         </a>
       </div>
