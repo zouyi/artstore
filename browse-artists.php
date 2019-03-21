@@ -83,6 +83,7 @@ while ($artist = $artists->fetch()){
 			echo '<td><a href="displaySingleArtist.php?aid='.$aid.'">Artist Page</a></td>';
 		echo '<td><a href="'.$artist['ArtistLink'].'">'.$artist['ArtistLink'].'</a></td>';
 	echo '</tr>';
+	
 			
 }
 			
