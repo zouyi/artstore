@@ -4,7 +4,7 @@ include 'includes/art-config.inc.php';
 try {
 	
     $subjectDB = new SubjectDB($pdo);
-	
+	$paintDB = new PaintingDB($pdo);
 	
 		if (isset($_GET['subid']) && ! empty($_GET['subid'])) {
 				
@@ -12,7 +12,7 @@ try {
 				
 				//echo $aid;
         $subject= $subjectDB->findById($subid);
-   
+        $paintings = $paintDB->findbySubject($subid);
     }
 	
 	
