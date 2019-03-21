@@ -9,10 +9,10 @@
 				
 					echo '<div class="column">';
 					echo '<div class="ui fluid card">';
-					echo '<a href="single-painting.php?id='.$work['PaintingID'].'" class="ui medium image"><img src="images/art/works/square-medium/'.$work['ImageFileName'].'.jpg" alt=""></a>';
+					echo '<a href="single-painting.php?id='.$work['PaintingID'].'" class="ui small image"><img src="images/art/works/square-medium/'.$work['ImageFileName'].'.jpg" alt=""></a>';
           echo '<div class="content">';
 					echo '<h5 class="ui header">';
-      		echo '<a href="#">'.$work['Title'].'
+      		echo '<a href="single-painting.php?id='.$work['PaintingID'].'">'.$work['Title'].'
               <span class="sub header">'.$work['Description'].'</span></a>';
 					
 					echo '</h5>';
