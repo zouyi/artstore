@@ -6,12 +6,12 @@ try {
     $subjectDB = new SubjectDB($pdo);
 	
 	
-		if (isset($_GET['sid']) && ! empty($_GET['sid'])) {
+		if (isset($_GET['subid']) && ! empty($_GET['subid'])) {
 				
-				$sid = $_GET['sid'];
+				$subid = $_GET['subid'];
 				
 				//echo $aid;
-        $subject = $subjectDB->findById($sid);
+        $subject= $subjectDB->findById($subid);
    
     }
 	
@@ -67,14 +67,11 @@ echo "<tbody>";
 try {
 
 	
-			$sid = $subject['subjectID'];
+			$subid = $subject['SubjectID'];
 		
 			echo '<tr>';
-			echo '<td>'.$sid.'</td>';
+			echo '<td>'.$subid.'</td>';
 			echo '<td>'.$subject['SubjectName'].'</td>';
-
-//			echo '<td><a href="'.$gallery['GalleryWebSite'].'">'.$gallery['GalleryWebSite'].'</a></td>';
-//		
 			echo '</tr>';
 			
 		

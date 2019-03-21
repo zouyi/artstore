@@ -49,6 +49,7 @@ echo "<table class='table table-dark'>";
 echo "<thead>";
 echo "<tr><th>ID</th>
 <th scope='col'>Name</th>
+<th scope='col'>Subject Link</th>
 </tr>";
 echo "</thead>";
 echo "<tbody>";
@@ -58,12 +59,12 @@ try {
 
 //echo $artists;
 while ($subject = $subjects->fetch()){
-		$sid = $subject['SubjectID'];
+		$subid = $subject['SubjectID'];
 			echo '<tr>';
 			
 			echo '<td>'.$subject['SubjectID'].'</td>';
 			echo '<td>'.$subject['SubjectName'].'</td>';
-
+            echo '<td><a href="displaySingleSubject.php?subid='.$subid.'">Subject Page</a></td>';
 	echo '</tr>';
 			
 }

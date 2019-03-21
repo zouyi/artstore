@@ -60,7 +60,7 @@ echo "<tr><th>ID</th>
 <th scope='col'>Country</th>
 <th scope='col'>Latitude</th>
 <th scope='col'>Longitude</th>
-<th scope='col'>Website</th>
+<th scope='col'>Web Site</th>
 </tr>";
 echo "</thead>";
 echo "<tbody>";

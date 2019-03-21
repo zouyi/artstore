@@ -58,7 +58,7 @@ echo "<tr><th>ID</th>
 <th scope='col'>Details</th>
 <th scope='col'>Link</th>
 <th scope='col'>Artist Page</th>
-<th scope='col'>Wiki Link</th>
+
 </tr>";
 echo "</thead>";
 echo "<tbody>";
@@ -80,7 +80,7 @@ while ($artist = $artists->fetch()){
 			echo '<td>'.$artist['YearOfBirth'].'</td>';
 			echo '<td>'.$artist['YearOfDeath'].'</td>';
 			echo '<td>'.$artist['Details'].'</td>';
-			echo '<td>'.$artist['ArtistLink'].'</td>';
+			//echo '<td>'.$artist['ArtistLink'].'</td>';
 			echo '<td><a href="displaySingleArtist.php?aid='.$aid.'">Artist Page</a></td>';
 		echo '<td><a href="'.$artist['ArtistLink'].'">'.$artist['ArtistLink'].'</a></td>';
 	echo '</tr>';

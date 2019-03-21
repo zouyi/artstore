@@ -59,9 +59,9 @@ echo "<table class='table table-dark'>";
 echo "<thead>";
 echo "<tr><th>ID</th>
 <th scope='col'>Name</th>
-<th scope='col'>Era</th>
+<th scope='col'>Era ID</th>
 <th scope='col'>Description</th>
-<th scope='col'>Link</th>
+<th scope='col'> Wiki Link</th>
 </tr>";
 echo "</thead>";
 echo "<tbody>";
