@@ -4,7 +4,7 @@ include 'includes/art-config.inc.php';
 try {
 	
     $galleryDB = new GalleryDB($pdo);
-	
+	$paintDB = new PaintingDB($pdo);
 	
 		if (isset($_GET['galid']) && ! empty($_GET['galid'])) {
 				
@@ -12,7 +12,7 @@ try {
 				
 				//echo $aid;
         $gallery = $galleryDB->findById($galid);
-   
+   $paintings = $paintDB->findByGallery($galid);
     }
 	
 	
