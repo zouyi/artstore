@@ -52,7 +52,7 @@ echo "<tr><th>ID</th>
 <th scope='col'>Name</th>
 <th scope='col'>Era ID</th>
 <th scope='col'>Description</th>
-<th scope='col'>Genre Link</th>
+<th scope='col'>Genre Page</th>
 <th scope='col'>Wiki Link</th>
 </tr>";
 echo "</thead>";

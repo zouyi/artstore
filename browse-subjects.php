@@ -49,7 +49,7 @@ echo "<table class='table table-dark'>";
 echo "<thead>";
 echo "<tr><th>ID</th>
 <th scope='col'>Name</th>
-<th scope='col'>Subject Link</th>
+<th scope='col'>Subject Page</th>
 </tr>";
 echo "</thead>";
 echo "<tbody>";

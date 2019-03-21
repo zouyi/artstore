@@ -56,9 +56,8 @@ echo "<tr><th>ID</th>
 <th scope='col'>Year of Birth</th>
 <th scope='col'>Year of Death</th>
 <th scope='col'>Details</th>
-<th scope='col'>Link</th>
 <th scope='col'>Artist Page</th>
-
+<th scope='col'>Link</th>
 </tr>";
 echo "</thead>";
 echo "<tbody>";
