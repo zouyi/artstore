@@ -4,6 +4,7 @@ include 'includes/art-config.inc.php';
 try {
 	
     $artistDB = new ArtistDB($pdo);
+		$paintDB = new PaintingDB($pdo);
 	
 	
 		if (isset($_GET['aid']) && ! empty($_GET['aid'])) {
@@ -12,6 +13,7 @@ try {
 				
 				//echo $aid;
         $artist = $artistDB->findById($aid);
+				$paintings = $paintDB->findByArtist($aid);
    
     }
 	
@@ -97,10 +99,10 @@ echo "</tbody>";
 echo "</table>";
 ?>
 
-		     <?php include 'includes/related-images.inc.php'; ?>      
+<?php include 'includes/related-images.inc2.php'; ?>      
 
   
-  ?>
+  
     
 		 	</div>
 
