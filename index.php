@@ -36,6 +36,7 @@
       <div class="row">
       
         <h2>Welcome to our Art Store!</h2>
+        <h6>For COMP 4130 class.</h6>
       </div>
       <br>
       <br>
