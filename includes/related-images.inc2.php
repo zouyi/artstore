@@ -5,7 +5,7 @@
 			
 			<?php 
 			
-			while ($work = $paintings->fetch()){
+			while ($work = $paintings ->fetch()){
 				
 					echo '<div class="column">';
 					echo '<div class="ui fluid card">';

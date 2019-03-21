@@ -96,7 +96,7 @@ echo "</tbody>";
 echo "</table>";
 ?>
 
-		     <?php include 'includes/related-images.inc.php'; ?>      
+		     <?php include 'includes/related-images.inc2.php'; ?>      
 
   
   ?>
